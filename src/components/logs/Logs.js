@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LogsItem from './LogsItem';
 import Preloader from '../layout/Preloader';
-
 export const Logs = () => {
 	////states//
 	const [logs, setLogs] = useState([]);
@@ -34,7 +33,10 @@ export const Logs = () => {
           ) : (
             logs.map(log => <LogsItem log={log} key={log.id} />)
           )}
+          
         </ul>
+
+        
       );
     
       
