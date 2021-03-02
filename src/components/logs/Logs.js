@@ -3,7 +3,7 @@ import LogsItem from './LogsItem';
 
 export const Logs = () => {
 	////states//
-	const [logs, setLogs] = useState();
+	const [logs, setLogs] = useState([]);
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {

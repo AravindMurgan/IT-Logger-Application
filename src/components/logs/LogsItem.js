@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import M from 'materialize-css/dist/js/materialize.min.js';
 
-const LogsItem = (log) => {
+
+const LogsItem = ({log}) => {
 	return (
-		<>
+            <div>
+            
 			<li className='collection-item'>
 				<div>
 					<a
@@ -13,19 +14,24 @@ const LogsItem = (log) => {
 						className={`modal-trigger ${
 							log.attention ? 'red-text' : 'blue-text'
 						}`}
-					></a>
+					>{log.message}asdzfdasasd </a>
+                    
                     <br/>
                     <span className="grey-text">
                         <span className="black-text">ID # {' '} </span>
                         last updated by
                         <span className="black-text"> {log.tech} </span>
+                        <Moment format='MMMM Do YYYY, h:m:ss a' >{log.date}</Moment>
                     </span>
 				</div>
 			</li>
-		</>
+            </div>
+		
 	);
 };
 
-LogsItem.propTypes = {};
+LogsItem.propTypes = {
+    log: PropTypes.object.isRequired,
+};
 
 export default LogsItem;
