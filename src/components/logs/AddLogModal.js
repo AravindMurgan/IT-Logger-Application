@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 const AddLogModal = () => {
 	const [message, setMessage] = useState('');
 	const [attention, setAttention] = useState(false);
 	const [tech, setTech] = useState('');
 
-    const onSubmit=()=>{
-        console.log('Helo');
-    }
+	const onSubmit = () => {
+		if(message === '' || tech === ''){
+			M.toast({html:'Please enter a message and tech'})
+		}else{
+			console.log(message,attention,tech);
+		}
+	};
 
 	return (
 		<div id='add-log-modal' className='modal'>
@@ -36,11 +41,10 @@ const AddLogModal = () => {
 							className='browser-default'
 							onChange={(e) => setTech(e.target.value)}
 						>
-							<option value='' disabled>
-								<option value='John Doe'>John Doe</option>
-								<option value='John Doe'>Sam Smith</option>
-								<option value='John Doe'>Sara Wilson</option>
-							</option>
+							<option value='' disabled>Select Techinician</option>
+							<option value='John Doe'>John Doe</option>
+							<option value='John Doe'>Sam Smith</option>
+							<option value='John Doe'>Sara Wilson</option>
 						</select>
 					</div>
 				</div>
@@ -64,7 +68,11 @@ const AddLogModal = () => {
 				</div>
 			</div>
 			<div class='modal-footer'>
-				<a href='#!' class='modal-close waves-effect blue btn-flat' onClick={onSubmit} >
+				<a
+					href='#!'
+					class='modal-close waves-effect blue waves-light btn'
+					onClick={onSubmit}
+				>
 					Enter
 				</a>
 			</div>
