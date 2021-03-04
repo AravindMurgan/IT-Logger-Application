@@ -12,7 +12,6 @@ const initialState = {
 export default (state =  initialState,action)=>{
     switch(action.type){
         case GET_LOGS:
-            console.log(...state)
             return{
                 ...state,
                 logs:action.payload,
@@ -26,7 +25,6 @@ export default (state =  initialState,action)=>{
 
         }
         case LOGS_ERROR:
-            console.log(action.payload);
             return {
             ...state,
             error:action.payload
