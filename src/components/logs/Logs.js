@@ -8,9 +8,9 @@ import { getLogs } from '../../actions/logAction';
 const Logs = ({ log: { logs, loading }, getLogs }) => {
 	useEffect(() => {
 		getLogs();
-
+		console.log('rendered')
 		// eslint-disable-next-line
-	}, [logs]);
+	}, []);
 
 	if (loading || logs === null) {
 		return <Preloader />;

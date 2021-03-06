@@ -1,11 +1,25 @@
 {
   "logs": [
     {
-      "message": "Windows 10 Installed on - 045C",
+      "id": 2,
+      "message": "Windows 10 Installed on - 0005555AAAA",
       "attention": false,
       "tech": "John Doe",
-      "date": "2021-03-05T06:50:30.786Z",
-      "id": 1
+      "date": "2021-03-06T09:51:42.068Z"
+    },
+    {
+      "message": "System Updated - 55I",
+      "attention": true,
+      "tech": "John Doe",
+      "date": "2021-03-06T08:46:56.268Z",
+      "id": 3
+    },
+    {
+      "message": "System OS updated",
+      "attention": false,
+      "tech": "John Doe",
+      "date": "2021-03-06T08:47:06.500Z",
+      "id": 4
     }
   ],
   "techs": [
