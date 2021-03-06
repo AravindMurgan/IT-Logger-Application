@@ -1,10 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
+import M from 'materialize-css/dist/js/materialize.min.js';
+import {connect} from 'react-redux';
+import {deleteLogs} from '../../actions/logAction';
 
-const LogsItem = ({ log }) => {
+const LogsItem = ({ log, deleteLogs }) => {
+	const onDelete=()=>{
+		deleteLogs(log.id);
+
+		M.toast({ html: 'Log Deleted' });
+	}
+
 	return (
-		<div>
+		
 			<li className='collection-item'>
 				<div>
 					<a
@@ -13,22 +22,22 @@ const LogsItem = ({ log }) => {
 							log.attention ? 'red-text' : 'blue-text'
 						}`}
 					>
-						{log.message}{' '}
+						{log.message}
 					</a>
 
 					<br />
 					<span className='grey-text'>
-						<span className='black-text'>ID # </span>
+						<span className='black-text'>ID #{log.id}</span>
 						last updated by
-						<span className='black-text'> {log.tech} </span>
-						<Moment format='MMMM Do YYYY, h:m:ss a'>{log.date}</Moment>
+						<span className='black-text'>{log.tech}</span> on{' '}
+						<Moment format='MMMM Do YYYY, h:mm:ss a'>{log.date}</Moment>
 					</span>
-					<a href='#' className='secondary-content'>
+					<a href='#' onClick={onDelete} className='secondary-content'>
 						<i className='material-icons grey-text'>delete</i>
 					</a>
 				</div>
 			</li>
-		</div>
+		
 	);
 };
 
@@ -36,4 +45,4 @@ LogsItem.propTypes = {
 	log: PropTypes.object.isRequired,
 };
 
-export default LogsItem;
+export default connect(null,{deleteLogs})(LogsItem) ;

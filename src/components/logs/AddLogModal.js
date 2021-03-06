@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { connect } from 'react-redux';
+import { addLogs } from '../../actions/logAction';
 
-const AddLogModal = () => {
+const AddLogModal = ({ addLogs }) => {
+	console.log('addlog modal rendered');
 	const [message, setMessage] = useState('');
 	const [attention, setAttention] = useState(false);
 	const [tech, setTech] = useState('');
 
 	const onSubmit = () => {
-		if(message === '' || tech === ''){
-			M.toast({html:'Please enter a message and tech'})
-		}else{
-			console.log(message,attention,tech);
+		if (message === '' || tech === '') {
+			M.toast({ html: 'Please enter a message and tech' });
+		} else {
+			const newLog = {
+				message,
+				attention,
+				tech,
+				date: new Date(),
+			};
+
+			addLogs(newLog);
+
+			M.toast({ html: `Log added by ${tech}` });
+			//clear fields
+			setMessage('');
+			setTech('');
+			setAttention(false);
 		}
 	};
 
@@ -41,7 +57,9 @@ const AddLogModal = () => {
 							className='browser-default'
 							onChange={(e) => setTech(e.target.value)}
 						>
-							<option value='' disabled>Select Techinician</option>
+							<option value='' disabled>
+								Select Techinician
+							</option>
 							<option value='John Doe'>John Doe</option>
 							<option value='John Doe'>Sam Smith</option>
 							<option value='John Doe'>Sara Wilson</option>
@@ -55,23 +73,23 @@ const AddLogModal = () => {
 							<label>
 								<input
 									type='checkbox'
-									class='filled-in'
+									className='filled-in'
 									checked={attention}
 									value={attention}
 									onChange={(e) => setAttention(!attention)}
 								/>
 
-								<span>Need Attention</span>
+								<span>Needs Attention</span>
 							</label>
 						</p>
 					</div>
 				</div>
 			</div>
-			<div class='modal-footer'>
+			<div className='modal-footer'>
 				<a
 					href='#!'
-					class='modal-close waves-effect blue waves-light btn'
 					onClick={onSubmit}
+					className='modal-close waves-effect blue waves-light btn'
 				>
 					Enter
 				</a>
@@ -80,4 +98,4 @@ const AddLogModal = () => {
 	);
 };
 
-export default AddLogModal;
+export default connect(null, { addLogs })(AddLogModal);
