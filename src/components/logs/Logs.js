@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import { getLogs } from '../../actions/logAction';
 
 const Logs = ({ log: { logs, loading }, getLogs }) => {
+	console.log('logs render')
 	useEffect(() => {
-		getLogs();
-		console.log('rendered')
+		getLogs()
 		// eslint-disable-next-line
 	}, []);
 

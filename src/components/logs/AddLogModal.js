@@ -3,9 +3,9 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import { connect } from 'react-redux';
 import { addLogs } from '../../actions/logAction';
 import SelectTechOption from '../techs/SelectTechOption';
+import PropTypes from 'prop-types';
 
 const AddLogModal = ({ addLogs }) => {
-	console.log('addlog modal rendered');
 	const [message, setMessage] = useState('');
 	const [attention, setAttention] = useState(false);
 	const [tech, setTech] = useState('');
@@ -18,7 +18,7 @@ const AddLogModal = ({ addLogs }) => {
 				message,
 				attention,
 				tech,
-				date: new Date(),
+				date: new Date()
 			};
 
 			addLogs(newLog);
@@ -60,7 +60,9 @@ const AddLogModal = ({ addLogs }) => {
 						>
 							<option value='' disabled>
 								Select Techinician
+								
 							</option>
+							<option value="plus -sign">plussign</option>
 							<SelectTechOption />
 						</select>
 					</div>
@@ -95,6 +97,10 @@ const AddLogModal = ({ addLogs }) => {
 			</div>
 		</div>
 	);
+};
+
+AddLogModal.propTypes = {
+	addLog: PropTypes.func.isRequired
 };
 
 export default connect(null, { addLogs })(AddLogModal);

@@ -10,6 +10,14 @@ const EditLogModal = ({ current, updateLogs }) => {
 	const [attention, setAttention] = useState(false);
 	const [tech, setTech] = useState('');
 
+	useEffect(() => {
+		if (current) {
+			setMessage(current.message);
+			setAttention(current.attention);
+			setTech(current.tech);
+		}
+	}, [current]);
+
 	const onSubmit = () => {
 		if (message === '' || tech === '') {
 			M.toast({ html: 'Please enter a message and tech' });
@@ -25,14 +33,6 @@ const EditLogModal = ({ current, updateLogs }) => {
 			M.toast({ html: `Edited by ${tech}` });
 		}
 	};
-
-	useEffect(() => {
-		if (current) {
-			setMessage(current.message);
-			setAttention(current.attention);
-			
-		}
-	}, [current]);
 
 	return (
 		<div id='edit-log-modal' className='modal'>
@@ -60,6 +60,7 @@ const EditLogModal = ({ current, updateLogs }) => {
 							<option value='' disabled>
 								Select Techinician
 							</option>
+							
 							<SelectTechOption />
 						</select>
 					</div>
