@@ -15,11 +15,25 @@
       "id": 3
     },
     {
-      "message": "System OS updated",
+      "id": 4,
+      "message": "System OS updated-8888888888",
+      "attention": true,
+      "tech": "John Doe",
+      "date": "2021-03-06T10:02:33.189Z"
+    },
+    {
+      "message": "Windows 10 Installed on -2000",
       "attention": false,
       "tech": "John Doe",
-      "date": "2021-03-06T08:47:06.500Z",
-      "id": 4
+      "date": "2021-03-06T11:51:37.302Z",
+      "id": 5
+    },
+    {
+      "message": "Windows 10 Installed on - 111",
+      "attention": true,
+      "tech": "John Doe",
+      "date": "2021-03-06T11:52:16.204Z",
+      "id": 6
     }
   ],
   "techs": [
@@ -32,16 +46,7 @@
       "id": 2,
       "firstName": "Sam",
       "lastName": "Smith"
-    },
-    {
-      "id": 3,
-      "firstName": "Sara",
-      "lastName": "Wilson"
-    },
-    {
-      "id": 4,
-      "firstName": "John",
-      "lastName": "Smith"
     }
+    
   ]
 }
