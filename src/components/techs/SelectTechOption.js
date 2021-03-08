@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { getTechs } from '../../actions/techActions';
 
 const SelectTechOption = ({ getTechs, tech:{ techs,loading } }) => {
-	console.log(techs)
     useEffect(()=>{
 
         getTechs();

@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils';
 import {
 	GET_LOGS,
 	SET_LOADING,
@@ -10,6 +9,8 @@ import {
 	UPDATE_LOG,
 	SEARCH_LOGS,
 } from '../actions/type';
+
+
 const initialState = {
 	logs: null,
 	current: null,

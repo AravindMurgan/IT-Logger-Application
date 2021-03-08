@@ -16,7 +16,7 @@ const TechItem = ({ tech,deleteTechs }) => {
 		<li className='collection-item'>
 			<div className=''>
 				{tech.firstName} {tech.lastName}
-				<a href='#' className='secondary-content' onClick={onDelete} >
+				<a href='#!' className='secondary-content' onClick={onDelete} >
 					<i className='material-icons grey-text'>delete</i>
 				</a>
 			</div>

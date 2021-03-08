@@ -7,7 +7,7 @@ export const TechListModal = ({getTechs,tech:{techs,loading}}) => {
 
 	useEffect(() => {
 		getTechs();
-	}, []);
+	}, [getTechs]);
 
 	return (
 		<div id='tech-list-modal' className='modal'>

@@ -72,7 +72,7 @@ const EditLogModal = ({ current, updateLogs }) => {
 							<label>
 								<input
 									type='checkbox'
-									class='filled-in'
+									className='filled-in'
 									checked={attention}
 									value={attention}
 									onChange={(e) => setAttention(!attention)}
@@ -84,10 +84,10 @@ const EditLogModal = ({ current, updateLogs }) => {
 					</div>
 				</div>
 			</div>
-			<div class='modal-footer'>
+			<div className='modal-footer'>
 				<a
 					href='#!'
-					class='modal-close waves-effect blue waves-light btn'
+					className='modal-close waves-effect blue waves-light btn'
 					onClick={onSubmit}
 				>
 					Enter
