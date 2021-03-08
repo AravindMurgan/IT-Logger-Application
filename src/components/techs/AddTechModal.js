@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import {connect} from 'react-redux';
+import {addTechs} from '../../actions/techActions';
 
-const AddTechModal = () => {
-	const [firstname, setFirstname] = useState('');
-	const [lastname, setLastname] = useState('');
+const AddTechModal = ({addTechs}) => {
+	const [firstName, setFirstname] = useState('');
+	const [lastName, setLastname] = useState('');
 
 	const onSubmit = () => {
-		if (firstname === '' || lastname === '') {
-			M.toast({ html: 'Please enter firstname and lastname' });
+		if (firstName === '' || lastName === '') {
+			M.toast({ html: 'Please enter firstName and lastName' });
 		} else {
-			console.log(firstname, lastname);
-		}
-	};
+			addTechs({firstName,lastName});
+			
+			M.toast({ html: `${firstName} ${lastName} was added as a tech` });
 
+			//clearFields//
+			setFirstname('')
+			setLastname('')
+		}
+	};	
+	
 	return (
 		<div id='add-tech-modal' className='modal'>
 			<div className='modal-content'>
@@ -21,12 +29,12 @@ const AddTechModal = () => {
 					<div className='input-field'>
 						<input
 							type='text'
-							name='firstname'
-							value={firstname}
+							name='firstName'
+							value={firstName}
 							onChange={(e) => setFirstname(e.target.value)}
 						/>
 
-						<label htmlFor='firstname' className='active'>
+						<label htmlFor='firstName' className='active'>
 							First Name
 						</label>
 					</div>
@@ -36,12 +44,12 @@ const AddTechModal = () => {
 					<div className='input-field'>
 						<input
 							type='text'
-							name='lastname'
-							value={lastname}
+							name='lastName'
+							value={lastName}
 							onChange={(e) => setLastname(e.target.value)}
 						/>
 
-						<label htmlFor='lastname' className='active'>
+						<label htmlFor='lastName' className='active'>
 							Last Name
 						</label>
 					</div>
@@ -60,4 +68,4 @@ const AddTechModal = () => {
 	);
 };
 
-export default AddTechModal;
+export default  connect(null,{addTechs})(AddTechModal) ;

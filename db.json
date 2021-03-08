@@ -1,32 +1,11 @@
 {
   "logs": [
     {
+      "id": 1,
       "message": "Windows 10 Installed on - 045C",
       "attention": false,
-      "tech": " John Doe",
-      "date": "2021-03-07T11:45:10.408Z",
-      "id": 1
-    },
-    {
-      "message": "Windows 10 Installed on -22200",
-      "attention": true,
-      "tech": " John Doe",
-      "date": "2021-03-07T11:52:11.760Z",
-      "id": 2
-    },
-    {
-      "message": "Windows 10 Installed on - 045C",
-      "attention": true,
-      "tech": " John Doe",
-      "date": "2021-03-07T11:53:28.568Z",
-      "id": 3
-    },
-    {
-      "message": "Fixed software issue - 8",
-      "attention": false,
-      "tech": " Sam Smith",
-      "date": "2021-03-07T12:25:26.529Z",
-      "id": 4
+      "tech": " Aravind Murugan",
+      "date": "2021-03-08T02:18:53.762Z"
     }
   ],
   "techs": [
@@ -41,14 +20,14 @@
       "lastName": "Smith"
     },
     {
-      "id": 3,
-      "firstName": "Will",
-      "lastName": "Smith"
+      "firstName": "Aravind",
+      "lastName": "Murugan",
+      "id": 3
     },
     {
-      "id": 4,
-      "firstName": "Rob",
-      "lastName": "jackson"
+      "firstName": "Isvary",
+      "lastName": "Murugan",
+      "id": 4
     }
   ]
 }
